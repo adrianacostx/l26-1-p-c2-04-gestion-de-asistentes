@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="body">
+    <h2>Gestión de evento</h2>
+    <button id="body_btAgregarAsistente">Agregar Asistente</button>
+    <hr>
+    <div>
+      Totales varios: <br>
+        Total entrada: <span id="body_lblTotalEntrada">0</span> <br>
+        Total regulares: <span id="body_lblTotalRegulares">0</span> <br>
+        Total VIP: <span id="body_lblTotalVIP">0</span> <br>
+        Total asistentes: <span id="body_lblTotalAsistentes">0</span> <br>
+    </div>
+    <hr>
+    <div>
+      Reportar porcentajes de edades: <br>
+        Porcentaje menores de edad: <span id="body_lblPorcentajeMenores">0</span> <br>
+        Porcentaje mayores de edad: <span id="body_lblPorcentajeMayores">0</span> <br>
+    </div>
+    <hr>
+    <div>
+      Reportar porcentajes de tipo entrada: <br>
+        Porcentaje entrada regular: <span id="body_lblPorcentajeRegulares">0</span> <br>
+        Porcentaje entrada VIP: <span id="body_lblPorcentajeVIP">0</span> <br>
+    </div>
+  </section>
+
+  <section id="asistente" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 300px;">
+    <h5 id="asistente_lblAsistente">Procesar Asistente</h5>
+    <div>
+      <label>Nombre:
+        <input type="text" id="asistente_inNombre" placeholder="Nombre del asistente">
+      </label>
+    </div>
+    <div>
+      <label>Apellido:
+        <input type="text" id="asistente_inApellido" placeholder="Apellido del asistente">
+      </label>
+    </div>
+    <div>
+      <label>Cédula:
+        <input type="number" id="asistente_inCedula" placeholder="Ej: 25123456">
+      </label>
+    </div>
+    <div>
+      <label>Genero:
+        <select id="asistente_inGenero" placeholder="Ej: M, F">
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+        </select>
+      </label>
+    </div>
+    <div>
+      <label>Edad:
+        <input type="date" id="asistente_inEdad" placeholder="Ej: 01/01/2000">
+      </label>
+    </div>
+    <div>
+      <label>Tipo de entrada:
+        <select id="asistente_inTipoEntrada" placeholder="Ej: Regular, VIP">
+          <option value="1">Regular</option>
+          <option value="2">VIP</option>
+        </select>
+      </label>
+    </div>
+    <div>
+        <label>Estudiante:
+            <input type="checkbox" id="asistente_inEsEstudiante">
+        </label>
+    </div>
+    <br>
+    <button id="asistente_btAceptar">Aceptar</button>
+    <button id="asistente_btCancelar">Cancelar</button>
+  </section>
+
+  <script type="module">
+    import Cl_cEvento from "./dist/controllers/Cl_cEvento.js";
+    import Cl_cAsistente from "./dist/controllers/Cl_cAsistente.js";
+
+    // Importamos SOLO las vistas planas
+    import Cl_vEvento from "./dist/views/Cl_vEvento.js";
+    import Cl_vAsistente from "./dist/views/Cl_vAsistente.js";
+
+    // 1. Instanciamos las vistas
+    const vEvento = new Cl_vEvento();
+    const vAsistente = new Cl_vAsistente();
+
+    // 2. Inyectamos las vistas en los controladores (¡La magia ocurre aquí!)
+    const cAsistente = new Cl_cAsistente(vAsistente);
+    new Cl_cEvento(vEvento, cAsistente);
+  </script>
+
+</body>
+</html>

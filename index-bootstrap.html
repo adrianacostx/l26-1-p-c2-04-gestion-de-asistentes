@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curso - Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="app-bootstrap" class="container mt-5">
+    <h2>Gestión de Evento (Bootstrap)</h2>
+    <button type="button" class="btn btn-primary" id="body_btAgregarAsistente">Agregar Asistente</button>
+    <hr>
+    <div class="alert alert-info">
+      Totales varios: <br>
+        Total entrada: <span id="body_lblTotalEntrada" class="fw-bold">0</span> <br>
+        Total regulares: <span id="body_lblTotalRegulares" class="fw-bold">0</span> <br>
+        Total VIP: <span id="body_lblTotalVIP" class="fw-bold">0</span> <br>
+        Total asistentes: <span id="body_lblTotalAsistentes" class="fw-bold">0</span> <br>
+    </div>
+    <div class="alert alert-info">
+      Reportar porcentajes de edades: <br> 
+        Porcentaje menores de edad: <span id="body_lblPorcentajeMenores" class="fw-bold"></span> <br>
+        Porcentaje mayores de edad: <span id="body_lblPorcentajeMayores" class="fw-bold"></span> <br>
+    </div>
+    <div class="alert alert-info">
+      Reportar porcentajes de tipo entrada: <br> 
+        Porcentaje entrada regular: <span id="body_lblPorcentajeRegulares" class="fw-bold"></span> <br>
+        Porcentaje entrada VIP: <span id="body_lblPorcentajeVIP" class="fw-bold"></span> <br>
+    </div>
+  </div>
+
+  <div class="modal fade" id="asistente" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Procesar Asistente</h5>
+        </div>
+        <div class="modal-body">
+          <label class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="asistente_inNombre">
+          <label class="form-label">Apellido:</label>
+          <input type="text" class="form-control" id="asistente_inApellido">
+          <label class="form-label">Cedula:</label>
+          <input type="text" class="form-control" id="asistente_inCedula">
+          <label class="form-label">Edad:</label>
+          <input type="date" class="form-control" id="asistente_inEdad">
+          <label class="form-label">Genero:</label>
+          <select class="form-control" id="asistente_inGenero">
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+          <label class="form-label">Tipo de entrada:</label>
+          <select class="form-control" id="asistente_inTipoEntrada">
+            <option value="1">Regular</option>
+            <option value="2">VIP</option>
+          </select>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="asistente_inEsEstudiante">
+            <label class="form-check-label" for="asistente_inEsEstudiante">Es estudiante</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id="asistente_btAceptar">Aceptar</button>
+          <button type="button" class="btn btn-secondary" id="asistente_btCancelar">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="module">
+
+    import Cl_cEvento from "./dist/controllers/Cl_cEvento.js";
+    import Cl_cAsistente from "./dist/controllers/Cl_cAsistente.js";
+
+    // Importamos SOLO las vistas de Bootstrap
+    import Cl_vEventoBootstrap from "./dist/views/Cl_vEventoBootstrap.js";
+    import Cl_vAsistenteBootstrap from "./dist/views/Cl_vAsistenteBootstrap.js";
+
+    // 1. Instanciamos las vistas
+    const vistaEvento = new Cl_vEventoBootstrap();
+    const vistaAsistente = new Cl_vAsistenteBootstrap();
+
+    // 2. Inyectamos las vistas en los mismos controladores
+    const controladorAsistente = new Cl_cAsistente(vistaAsistente);
+    new Cl_cEvento(vistaEvento, controladorAsistente);
+
+    </script>
+</body>
+</html>
