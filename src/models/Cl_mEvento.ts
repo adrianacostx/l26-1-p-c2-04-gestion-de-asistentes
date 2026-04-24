@@ -11,34 +11,42 @@ export default class Cl_mEvento {
 
     procesarAsistente(a: Cl_mAsistente): void {
         this.cntTotalAsistentes++;
-        const precio = a.precio;
+        const precio = a.precio();
         this.acTotalEntrada += precio;
-        if (a.tipoEntrada === 1) {
+        if (a.tipoEntrada() === 1) {
             this.contadorTipo1++;
             this.acTotalRegulares += precio;
-        } else if (a.tipoEntrada === 2) {
+        } else if (a.tipoEntrada() === 2) {
             this.contadorTipo2++;
             this.acTotalVIP += precio;
         }
-        if (a.edadActual < 18) {
+        if (a.edadActual() < 18) {
             this.contadorMenores++;
         }
     }
 
-    get totalAsistentes(): number { return this.cntTotalAsistentes; }
-    get totalEntrada(): number { return this.acTotalEntrada; }
-    get totalRegulares(): number { return this.acTotalRegulares; }
-    get totalVIP(): number { return this.acTotalVIP; }
-    get porcentajeMenores(): number {
+    totalEntrada(): number { 
+        return this.acTotalEntrada; 
+    }
+    totalRegulares(): number { 
+        return this.acTotalRegulares; 
+    }
+    totalVIP(): number { 
+        return this.acTotalVIP; 
+    }
+    totalAsistentes(): number { 
+        return this.cntTotalAsistentes;
+    }
+    porcentajeMenores(): number {
         return this.cntTotalAsistentes > 0 ? (this.contadorMenores / this.cntTotalAsistentes) * 100 : 0;
     }
-    get porcentajeMayores(): number {
+    porcentajeMayores(): number {
         return this.cntTotalAsistentes > 0 ? ((this.cntTotalAsistentes - this.contadorMenores) / this.cntTotalAsistentes) * 100 : 0;
     }
-    get porcentajeRegulares(): number {
+    porcentajeRegulares(): number {
         return this.cntTotalAsistentes > 0 ? (this.contadorTipo1 / this.cntTotalAsistentes) * 100 : 0;
     }
-    get porcentajeVIP(): number {
+    porcentajeVIP(): number {
         return this.cntTotalAsistentes > 0 ? (this.contadorTipo2 / this.cntTotalAsistentes) * 100 : 0;
     }
 }

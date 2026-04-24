@@ -4,9 +4,9 @@ export default class Cl_mRegular extends Cl_mAsistente {
         super(datos);
         this._tipoEntrada = 1; // Regular
     }
-    get precio() {
+    precio() {
         // Regular: $10, con 50% descuento si estudiante y menor de edad
-        const esMenorEstudiante = this.esEstudiante && this.edadActual < 18;
+        const esMenorEstudiante = this.esEstudiante && this.edadActual() < 18;
         return esMenorEstudiante ? 5 : 10;
     }
 }

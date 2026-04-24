@@ -5,7 +5,7 @@ export default class Cl_vAsistente implements I_vAsistente {
   inApellido: HTMLInputElement;
   inCedula: HTMLInputElement;
   inGenero: HTMLSelectElement;
-  inEdad: HTMLInputElement;
+  inFechaNacimiento: HTMLInputElement;
   inTipoEntrada: HTMLSelectElement;
   inEsEstudiante: HTMLInputElement;
   btCancelar: HTMLButtonElement;
@@ -26,8 +26,8 @@ export default class Cl_vAsistente implements I_vAsistente {
     this.inGenero = document.getElementById(
       "asistente_inGenero",
     ) as HTMLSelectElement;
-    this.inEdad = document.getElementById(
-      "asistente_inEdad",
+    this.inFechaNacimiento = document.getElementById(
+      "asistente_inFechaNacimiento",
     ) as HTMLInputElement;
     this.inTipoEntrada = document.getElementById(
       "asistente_inTipoEntrada",
@@ -55,8 +55,8 @@ export default class Cl_vAsistente implements I_vAsistente {
   get genero(): string {
     return this.inGenero.value;
   }
-  get edad(): Date {
-    return new Date(this.inEdad.value);
+  get fechaNacimiento(): Date {
+    return new Date(this.inFechaNacimiento.value);
   }
   get tipoEntrada(): number {
     return +this.inTipoEntrada.value;

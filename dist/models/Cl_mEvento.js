@@ -8,34 +8,42 @@ export default class Cl_mEvento {
     contadorMenores = 0;
     procesarAsistente(a) {
         this.cntTotalAsistentes++;
-        const precio = a.precio;
+        const precio = a.precio();
         this.acTotalEntrada += precio;
-        if (a.tipoEntrada === 1) {
+        if (a.tipoEntrada() === 1) {
             this.contadorTipo1++;
             this.acTotalRegulares += precio;
         }
-        else if (a.tipoEntrada === 2) {
+        else if (a.tipoEntrada() === 2) {
             this.contadorTipo2++;
             this.acTotalVIP += precio;
         }
-        if (a.edadActual < 18) {
+        if (a.edadActual() < 18) {
             this.contadorMenores++;
         }
     }
-    get totalAsistentes() { return this.cntTotalAsistentes; }
-    get totalEntrada() { return this.acTotalEntrada; }
-    get totalRegulares() { return this.acTotalRegulares; }
-    get totalVIP() { return this.acTotalVIP; }
-    get porcentajeMenores() {
+    totalEntrada() {
+        return this.acTotalEntrada;
+    }
+    totalRegulares() {
+        return this.acTotalRegulares;
+    }
+    totalVIP() {
+        return this.acTotalVIP;
+    }
+    totalAsistentes() {
+        return this.cntTotalAsistentes;
+    }
+    porcentajeMenores() {
         return this.cntTotalAsistentes > 0 ? (this.contadorMenores / this.cntTotalAsistentes) * 100 : 0;
     }
-    get porcentajeMayores() {
+    porcentajeMayores() {
         return this.cntTotalAsistentes > 0 ? ((this.cntTotalAsistentes - this.contadorMenores) / this.cntTotalAsistentes) * 100 : 0;
     }
-    get porcentajeRegulares() {
+    porcentajeRegulares() {
         return this.cntTotalAsistentes > 0 ? (this.contadorTipo1 / this.cntTotalAsistentes) * 100 : 0;
     }
-    get porcentajeVIP() {
+    porcentajeVIP() {
         return this.cntTotalAsistentes > 0 ? (this.contadorTipo2 / this.cntTotalAsistentes) * 100 : 0;
     }
 }

@@ -13,14 +13,14 @@ export default class Cl_cEvento {
             if (asistente) {
                 this.mEvento.procesarAsistente(asistente);
                 this.vEvento.reportar({
-                    totalEntrada: this.mEvento.totalEntrada,
-                    totalRegulares: this.mEvento.totalRegulares,
-                    totalVIP: this.mEvento.totalVIP,
-                    totalAsistentes: this.mEvento.totalAsistentes,
-                    porcentajeMenores: this.mEvento.porcentajeMenores,
-                    porcentajeMayores: this.mEvento.porcentajeMayores,
-                    porcentajeRegulares: this.mEvento.porcentajeRegulares,
-                    porcentajeVIP: this.mEvento.porcentajeVIP,
+                    totalEntrada: this.mEvento.totalEntrada(),
+                    totalRegulares: this.mEvento.totalRegulares(),
+                    totalVIP: this.mEvento.totalVIP(),
+                    totalAsistentes: this.mEvento.totalAsistentes(),
+                    porcentajeMenores: this.mEvento.porcentajeMenores(),
+                    porcentajeMayores: this.mEvento.porcentajeMayores(),
+                    porcentajeRegulares: this.mEvento.porcentajeRegulares(),
+                    porcentajeVIP: this.mEvento.porcentajeVIP(),
                 });
             }
         });

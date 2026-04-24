@@ -3,7 +3,7 @@ export interface I_vAsistente {
   get apellido(): string;
   get cedula(): number;
   get genero(): string;
-  get edad(): Date;
+  get fechaNacimiento(): Date;
   get tipoEntrada(): number;
   get esEstudiante(): boolean;
   mostrar(): void;

@@ -3,7 +3,7 @@ export default class Cl_vAsistente {
     inApellido;
     inCedula;
     inGenero;
-    inEdad;
+    inFechaNacimiento;
     inTipoEntrada;
     inEsEstudiante;
     btCancelar;
@@ -15,7 +15,7 @@ export default class Cl_vAsistente {
         this.inApellido = document.getElementById("asistente_inApellido");
         this.inCedula = document.getElementById("asistente_inCedula");
         this.inGenero = document.getElementById("asistente_inGenero");
-        this.inEdad = document.getElementById("asistente_inEdad");
+        this.inFechaNacimiento = document.getElementById("asistente_inFechaNacimiento");
         this.inTipoEntrada = document.getElementById("asistente_inTipoEntrada");
         this.inEsEstudiante = document.getElementById("asistente_inEsEstudiante");
         this.btCancelar = document.getElementById("asistente_btCancelar");
@@ -33,8 +33,8 @@ export default class Cl_vAsistente {
     get genero() {
         return this.inGenero.value;
     }
-    get edad() {
-        return new Date(this.inEdad.value);
+    get fechaNacimiento() {
+        return new Date(this.inFechaNacimiento.value);
     }
     get tipoEntrada() {
         return +this.inTipoEntrada.value;

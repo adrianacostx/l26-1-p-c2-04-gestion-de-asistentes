@@ -3,13 +3,13 @@ export default class Cl_mPersona {
     _apellido;
     _cedula;
     _genero;
-    _edad;
-    constructor({ nombre, apellido, cedula, genero, edad }) {
+    _fechaNacimiento;
+    constructor({ nombre, apellido, cedula, genero, fechaNacimiento }) {
         this._nombre = nombre;
         this._apellido = apellido;
         this._cedula = cedula;
         this._genero = genero;
-        this._edad = edad;
+        this._fechaNacimiento = fechaNacimiento;
     }
     set nombre(value) {
         this._nombre = value;
@@ -35,11 +35,11 @@ export default class Cl_mPersona {
     get genero() {
         return this._genero;
     }
-    set edad(value) {
-        this._edad = value;
+    set fechaNacimiento(value) {
+        this._fechaNacimiento = value;
     }
-    get edad() {
-        return this._edad;
+    get fechaNacimiento() {
+        return this._fechaNacimiento;
     }
 }
 //# sourceMappingURL=Cl_mPersona.js.map

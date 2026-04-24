@@ -23,7 +23,7 @@ export default class Cl_cAsistente {
             apellido: this.vista.apellido,
             cedula: this.vista.cedula,
             genero: this.vista.genero,
-            edad: this.vista.edad,
+            fechaNacimiento: this.vista.fechaNacimiento,
             esEstudiante: this.vista.esEstudiante,
         };
         let asistente;
