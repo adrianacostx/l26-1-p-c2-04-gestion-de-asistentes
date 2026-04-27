@@ -2,13 +2,13 @@ export default class Cl_mPersona {
     _nombre;
     _apellido;
     _cedula;
-    _genero;
+    _sexo;
     _fechaNacimiento;
-    constructor({ nombre, apellido, cedula, genero, fechaNacimiento }) {
+    constructor({ nombre, apellido, cedula, sexo, fechaNacimiento }) {
         this._nombre = nombre;
         this._apellido = apellido;
         this._cedula = cedula;
-        this._genero = genero;
+        this._sexo = sexo;
         this._fechaNacimiento = fechaNacimiento;
     }
     set nombre(value) {
@@ -29,11 +29,11 @@ export default class Cl_mPersona {
     get cedula() {
         return this._cedula;
     }
-    set genero(value) {
-        this._genero = value;
+    set sexo(value) {
+        this._sexo = value;
     }
-    get genero() {
-        return this._genero;
+    get sexo() {
+        return this._sexo;
     }
     set fechaNacimiento(value) {
         this._fechaNacimiento = value;

@@ -1,6 +1,5 @@
 // Se tiene la clase base persona con los siguientes datos:
-import Cl_mRegular from "../models/Cl_mRegular.js";
-import Cl_mVIP from "../models/Cl_mVIP.js";
+import Cl_mAsistente from "../models/Cl_mAsistente.js";
 export default class Cl_cAsistente {
     vista;
     callback;
@@ -18,21 +17,15 @@ export default class Cl_cAsistente {
         this.vista.ocultar();
     }
     btAceptarOnClick() {
-        const datosBase = {
+        const asistente = new Cl_mAsistente({
             nombre: this.vista.nombre,
             apellido: this.vista.apellido,
             cedula: this.vista.cedula,
-            genero: this.vista.genero,
+            sexo: this.vista.sexo,
             fechaNacimiento: this.vista.fechaNacimiento,
             esEstudiante: this.vista.esEstudiante,
-        };
-        let asistente;
-        if (this.vista.tipoEntrada === 1) {
-            asistente = new Cl_mRegular(datosBase);
-        }
-        else {
-            asistente = new Cl_mVIP(datosBase);
-        }
+            tipoEntrada: this.vista.tipoEntrada
+        });
         this.callback(asistente);
         this.vista.ocultar();
     }

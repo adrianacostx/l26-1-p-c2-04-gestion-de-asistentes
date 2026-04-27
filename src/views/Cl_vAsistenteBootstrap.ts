@@ -5,7 +5,7 @@ export default class Cl_vAsistenteBootstrap implements I_vAsistente {
   inNombre: HTMLInputElement;
   inApellido: HTMLInputElement;
   inCedula: HTMLInputElement;
-  inGenero: HTMLSelectElement;
+  inSexo: HTMLSelectElement;
   inFechaNacimiento: HTMLInputElement;
   inTipoEntrada: HTMLSelectElement;
   inEsEstudiante: HTMLInputElement;
@@ -25,8 +25,8 @@ export default class Cl_vAsistenteBootstrap implements I_vAsistente {
     this.inApellido = document.getElementById(
       "asistente_inApellido",
     ) as HTMLInputElement;
-    this.inGenero = document.getElementById(
-      "asistente_inGenero",
+    this.inSexo = document.getElementById(
+      "asistente_inSexo",
     ) as HTMLSelectElement;
     this.inFechaNacimiento = document.getElementById(
       "asistente_inFechaNacimiento",
@@ -55,8 +55,8 @@ export default class Cl_vAsistenteBootstrap implements I_vAsistente {
   get cedula(): number {
     return this.inCedula ? +this.inCedula.value : 0;
   }
-  get genero(): string {
-    return this.inGenero.value;
+  get sexo(): string {
+    return this.inSexo.value;
   }
   get fechaNacimiento(): Date {
     return this.inFechaNacimiento.valueAsDate || new Date();
@@ -77,7 +77,7 @@ export default class Cl_vAsistenteBootstrap implements I_vAsistente {
     this.inNombre.value = ""; 
     this.inCedula.value = "";
     this.inApellido.value = "";
-    this.inGenero.value = "M";
+    this.inSexo.value = "M";
     this.inFechaNacimiento.value = "";
     this.inTipoEntrada.value = "1";
     this.inEsEstudiante.checked = false;

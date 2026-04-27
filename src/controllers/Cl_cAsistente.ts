@@ -18,8 +18,6 @@
 
 import { I_vAsistente } from "../interfaces/I_vAsistente.js";
 import Cl_mAsistente from "../models/Cl_mAsistente.js";
-import Cl_mRegular from "../models/Cl_mRegular.js";
-import Cl_mVIP from "../models/Cl_mVIP.js";
 
 export default class Cl_cAsistente {
     private vista: I_vAsistente;
@@ -42,21 +40,15 @@ export default class Cl_cAsistente {
     }
 
     private btAceptarOnClick() {
-        const datosBase = {
+        const asistente = new Cl_mAsistente({
             nombre: this.vista.nombre,
             apellido: this.vista.apellido,
             cedula: this.vista.cedula,
-            genero: this.vista.genero,
+            sexo: this.vista.sexo,
             fechaNacimiento: this.vista.fechaNacimiento,
             esEstudiante: this.vista.esEstudiante,
-        };
-
-        let asistente: Cl_mAsistente;
-        if (this.vista.tipoEntrada === 1) {
-            asistente = new Cl_mRegular(datosBase);
-        } else {
-            asistente = new Cl_mVIP(datosBase);
-        }
+            tipoEntrada: this.vista.tipoEntrada
+        });
 
         this.callback(asistente);
         this.vista.ocultar();

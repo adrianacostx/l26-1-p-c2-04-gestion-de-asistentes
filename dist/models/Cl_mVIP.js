@@ -6,7 +6,7 @@ export default class Cl_mVIP extends Cl_mAsistente {
     }
     precio() {
         // VIP: $30, $25 para damas
-        return this.genero.toUpperCase() === "F" ? 25 : 30;
+        return this.sexo.toUpperCase() === "F" ? 25 : 30;
     }
 }
 //# sourceMappingURL=Cl_mVIP.js.map

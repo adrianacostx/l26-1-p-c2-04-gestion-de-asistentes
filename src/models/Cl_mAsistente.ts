@@ -1,19 +1,15 @@
 import Cl_mPersona from "./Cl_mPersona.js";
 
 export default class Cl_mAsistente extends Cl_mPersona {
-    protected esEstudiante: boolean;
-    protected _tipoEntrada: number = 0;
+    private _esEstudiante: boolean;
+    private _tipoEntrada: number = 0;
 
-    constructor({ nombre, apellido, cedula, genero, fechaNacimiento, esEstudiante }: 
-                { nombre: string; apellido: string; cedula: number; genero: string; fechaNacimiento: Date; esEstudiante: boolean }) {
-        super({ nombre, apellido, cedula, genero, fechaNacimiento });
-        this.esEstudiante = esEstudiante;
+    constructor({ nombre, apellido, cedula, sexo, fechaNacimiento, esEstudiante, tipoEntrada }: 
+                { nombre: string; apellido: string; cedula: number; sexo: string; fechaNacimiento: Date; esEstudiante: boolean; tipoEntrada: number }) {
+        super({ nombre, apellido, cedula, sexo, fechaNacimiento });
+        this._esEstudiante = esEstudiante;
+        this._tipoEntrada = tipoEntrada;
     }
-
-    precio(): number {
-        throw new Error("Se implementa en las subclase");
-    }
-
     tipoEntrada(): number {
         return this._tipoEntrada;
     }
@@ -24,5 +20,15 @@ export default class Cl_mAsistente extends Cl_mPersona {
         const cumpleEsteAno = new Date(hoy.getFullYear(), this.fechaNacimiento.getMonth(), this.fechaNacimiento.getDate());
         if (hoy < cumpleEsteAno) edad--;
         return edad;
+    }
+    precio(): number {
+        if (this._tipoEntrada === 1) {  // Regular
+            // $10, con 50% descuento si estudiante y menor de edad
+            const esMenorEstudiante = this._esEstudiante && this.edadActual() < 18;
+            return esMenorEstudiante ? 5 : 10;
+        } else {  // VIP
+            // $30, $25 para damas (sexo 'F')
+            return this.sexo.toUpperCase() === "F" ? 25 : 30;
+        }
     }
 }

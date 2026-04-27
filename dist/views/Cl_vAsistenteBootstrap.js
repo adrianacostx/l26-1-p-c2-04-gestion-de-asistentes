@@ -2,7 +2,7 @@ export default class Cl_vAsistenteBootstrap {
     inNombre;
     inApellido;
     inCedula;
-    inGenero;
+    inSexo;
     inFechaNacimiento;
     inTipoEntrada;
     inEsEstudiante;
@@ -15,7 +15,7 @@ export default class Cl_vAsistenteBootstrap {
         this.inNombre = document.getElementById("asistente_inNombre");
         this.inCedula = document.getElementById("asistente_inCedula");
         this.inApellido = document.getElementById("asistente_inApellido");
-        this.inGenero = document.getElementById("asistente_inGenero");
+        this.inSexo = document.getElementById("asistente_inSexo");
         this.inFechaNacimiento = document.getElementById("asistente_inFechaNacimiento");
         this.inTipoEntrada = document.getElementById("asistente_inTipoEntrada");
         this.inEsEstudiante = document.getElementById("asistente_inEsEstudiante");
@@ -33,8 +33,8 @@ export default class Cl_vAsistenteBootstrap {
     get cedula() {
         return this.inCedula ? +this.inCedula.value : 0;
     }
-    get genero() {
-        return this.inGenero.value;
+    get sexo() {
+        return this.inSexo.value;
     }
     get fechaNacimiento() {
         return this.inFechaNacimiento.valueAsDate || new Date();
@@ -55,7 +55,7 @@ export default class Cl_vAsistenteBootstrap {
         this.inNombre.value = "";
         this.inCedula.value = "";
         this.inApellido.value = "";
-        this.inGenero.value = "M";
+        this.inSexo.value = "M";
         this.inFechaNacimiento.value = "";
         this.inTipoEntrada.value = "1";
         this.inEsEstudiante.checked = false;
