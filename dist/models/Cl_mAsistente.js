@@ -18,16 +18,26 @@ export default class Cl_mAsistente extends Cl_mPersona {
             edad--;
         return edad;
     }
+    precioBase() {
+        if (this._tipoEntrada === 1) {
+            return 10;
+        }
+        else if (this._tipoEntrada === 2 && this.sexo.toUpperCase() === "F") {
+            return 25;
+        }
+        else if (this._tipoEntrada === 2) {
+            return 30;
+        }
+        return 0;
+    }
+    descuento() {
+        if (this._tipoEntrada === 1 && this._esEstudiante && this.edadActual() < 18) {
+            return 5;
+        }
+        return 0;
+    }
     precio() {
-        if (this._tipoEntrada === 1) { // Regular
-            // $10, con 50% descuento si estudiante y menor de edad
-            const esMenorEstudiante = this._esEstudiante && this.edadActual() < 18;
-            return esMenorEstudiante ? 5 : 10;
-        }
-        else { // VIP
-            // $30, $25 para damas (sexo 'F')
-            return this.sexo.toUpperCase() === "F" ? 25 : 30;
-        }
+        return this.precioBase() - this.descuento();
     }
 }
 //# sourceMappingURL=Cl_mAsistente.js.map
