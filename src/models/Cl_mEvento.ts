@@ -13,10 +13,10 @@ export default class Cl_mEvento {
         this.cntTotalAsistentes++;
         const precio = a.precio();
         this.acTotalEntrada += precio;
-        if (a.tipoEntrada() === 1) {
+        if (a.tipoEntrada === 1) {
             this.contadorTipo1++;
             this.acTotalRegulares += precio;
-        } else if (a.tipoEntrada() === 2) {
+        } else if (a.tipoEntrada === 2) {
             this.contadorTipo2++;
             this.acTotalVIP += precio;
         }

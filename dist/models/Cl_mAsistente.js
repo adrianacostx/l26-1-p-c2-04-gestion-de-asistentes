@@ -1,13 +1,22 @@
 import Cl_mPersona from "./Cl_mPersona.js";
 export default class Cl_mAsistente extends Cl_mPersona {
     _esEstudiante;
-    _tipoEntrada = 0;
+    _tipoEntrada;
     constructor({ nombre, apellido, cedula, sexo, fechaNacimiento, esEstudiante, tipoEntrada }) {
         super({ nombre, apellido, cedula, sexo, fechaNacimiento });
         this._esEstudiante = esEstudiante;
         this._tipoEntrada = tipoEntrada;
     }
-    tipoEntrada() {
+    set esEstudiante(value) {
+        this._esEstudiante = value;
+    }
+    get esEstudiante() {
+        return this._esEstudiante;
+    }
+    set tipoEntrada(value) {
+        this._tipoEntrada = value;
+    }
+    get tipoEntrada() {
         return this._tipoEntrada;
     }
     edadActual() {

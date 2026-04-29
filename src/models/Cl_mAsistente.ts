@@ -2,7 +2,7 @@ import Cl_mPersona from "./Cl_mPersona.js";
 
 export default class Cl_mAsistente extends Cl_mPersona {
     private _esEstudiante: boolean;
-    private _tipoEntrada: number = 0;
+    private _tipoEntrada: number;
 
     constructor({ nombre, apellido, cedula, sexo, fechaNacimiento, esEstudiante, tipoEntrada }: 
                 { nombre: string; apellido: string; cedula: number; sexo: string; fechaNacimiento: Date; esEstudiante: boolean; tipoEntrada: number }) {
@@ -10,7 +10,16 @@ export default class Cl_mAsistente extends Cl_mPersona {
         this._esEstudiante = esEstudiante;
         this._tipoEntrada = tipoEntrada;
     }
-    tipoEntrada(): number {
+    set esEstudiante(value: boolean) {
+        this._esEstudiante = value;
+    }
+    get esEstudiante(): boolean {
+        return this._esEstudiante;
+    }
+    set tipoEntrada(value: number) {
+        this._tipoEntrada = value;
+    }
+    get tipoEntrada(): number {
         return this._tipoEntrada;
     }
 
