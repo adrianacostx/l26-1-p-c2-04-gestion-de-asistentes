@@ -9,6 +9,8 @@ export default class Cl_vEventoBootstrap implements I_vEvento {
   private lblPorcentajeMayores: HTMLInputElement;
   private lblPorcentajeRegulares: HTMLInputElement;
   private lblPorcentajeVIP: HTMLInputElement;
+  private lblPorcentajeMasculino: HTMLInputElement;
+  private lblPorcentajeFemenino: HTMLInputElement;
   private btAgregarAsistente: HTMLButtonElement;
   private vista: HTMLElement;
 
@@ -41,11 +43,18 @@ export default class Cl_vEventoBootstrap implements I_vEvento {
     this.lblPorcentajeVIP = document.getElementById(
       "body_lblPorcentajeVIP",
     ) as HTMLInputElement;
+    this.lblPorcentajeMasculino = document.getElementById(
+      "body_lblPorcentajeMasculino",
+    ) as HTMLInputElement;
+    this.lblPorcentajeFemenino = document.getElementById(
+      "body_lblPorcentajeFemenino",
+    ) as HTMLInputElement;
+
   }
   onAgregarAsistente(callback: () => void): void {
     this.btAgregarAsistente.onclick = callback;
   }
-  reportar({ totalEntrada, totalRegulares, totalVIP, totalAsistentes, porcentajeMenores, porcentajeMayores, porcentajeRegulares, porcentajeVIP }: { totalEntrada: number, totalRegulares: number, totalVIP: number, totalAsistentes: number, porcentajeMenores: number, porcentajeMayores: number, porcentajeRegulares: number, porcentajeVIP: number }): void {
+  reportar({ totalEntrada, totalRegulares, totalVIP, totalAsistentes, porcentajeMenores, porcentajeMayores, porcentajeRegulares, porcentajeVIP, porcentajeMasculino, porcentajeFemenino }: { totalEntrada: number, totalRegulares: number, totalVIP: number, totalAsistentes: number, porcentajeMenores: number, porcentajeMayores: number, porcentajeRegulares: number, porcentajeVIP: number, porcentajeMasculino: number, porcentajeFemenino: number }): void {
     this.lblTotalEntrada.innerHTML = `$${totalEntrada}`;
     this.lblTotalRegulares.innerHTML = `$${totalRegulares}`;
     this.lblTotalVIP.innerHTML = `$${totalVIP}`;
@@ -54,6 +63,8 @@ export default class Cl_vEventoBootstrap implements I_vEvento {
     this.lblPorcentajeMayores.innerHTML = `${porcentajeMayores.toFixed(2)}%`;
     this.lblPorcentajeRegulares.innerHTML = `${porcentajeRegulares.toFixed(2)}%`;
     this.lblPorcentajeVIP.innerHTML = `${porcentajeVIP.toFixed(2)}%`;
+    this.lblPorcentajeMasculino.innerHTML = `${porcentajeMasculino.toFixed(2)}%`;
+    this.lblPorcentajeFemenino.innerHTML = `${porcentajeFemenino.toFixed(2)}%`;
   }
     mostrar(): void {
       if (this.vista === null) return;

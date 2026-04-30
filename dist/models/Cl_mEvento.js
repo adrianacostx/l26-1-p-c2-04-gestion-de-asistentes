@@ -6,6 +6,8 @@ export default class Cl_mEvento {
     contadorTipo1 = 0;
     contadorTipo2 = 0;
     contadorMenores = 0;
+    contadorMasculino = 0;
+    contadorFemenino = 0;
     procesarAsistente(a) {
         this.cntTotalAsistentes++;
         const precio = a.precio();
@@ -20,6 +22,12 @@ export default class Cl_mEvento {
         }
         if (a.edadActual() < 18) {
             this.contadorMenores++;
+        }
+        if (a.genero() === "M") {
+            this.contadorMasculino++;
+        }
+        else if (a.genero() === "F") {
+            this.contadorFemenino++;
         }
     }
     totalEntrada() {
@@ -45,6 +53,12 @@ export default class Cl_mEvento {
     }
     porcentajeVIP() {
         return this.cntTotalAsistentes > 0 ? (this.contadorTipo2 / this.cntTotalAsistentes) * 100 : 0;
+    }
+    porcentajeMasculino() {
+        return this.cntTotalAsistentes > 0 ? (this.contadorMasculino / this.cntTotalAsistentes) * 100 : 0;
+    }
+    porcentajeFemenino() {
+        return this.cntTotalAsistentes > 0 ? (this.contadorFemenino / this.cntTotalAsistentes) * 100 : 0;
     }
 }
 //# sourceMappingURL=Cl_mEvento.js.map

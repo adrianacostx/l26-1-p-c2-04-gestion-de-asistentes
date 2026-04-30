@@ -21,6 +21,8 @@ export default class Cl_cEvento {
                     porcentajeMayores: this.mEvento.porcentajeMayores(),
                     porcentajeRegulares: this.mEvento.porcentajeRegulares(),
                     porcentajeVIP: this.mEvento.porcentajeVIP(),
+                    porcentajeMasculino: this.mEvento.porcentajeMasculino(),
+                    porcentajeFemenino: this.mEvento.porcentajeFemenino(),
                 });
             }
         });

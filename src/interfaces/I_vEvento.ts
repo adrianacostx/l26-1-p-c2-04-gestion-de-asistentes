@@ -9,5 +9,7 @@ export interface I_vEvento {
         porcentajeMayores: number;
         porcentajeRegulares: number;
         porcentajeVIP: number;
+        porcentajeMasculino: number;
+        porcentajeFemenino: number;
     }): void;
 }

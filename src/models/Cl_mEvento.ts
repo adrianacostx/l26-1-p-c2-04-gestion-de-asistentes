@@ -8,6 +8,8 @@ export default class Cl_mEvento {
     private contadorTipo1: number = 0;
     private contadorTipo2: number = 0;
     private contadorMenores: number = 0;
+    private contadorMasculino: number = 0;
+    private contadorFemenino: number = 0;
 
     procesarAsistente(a: Cl_mAsistente): void {
         this.cntTotalAsistentes++;
@@ -22,6 +24,11 @@ export default class Cl_mEvento {
         }
         if (a.edadActual() < 18) {
             this.contadorMenores++;
+        }
+        if (a.genero() === "M") {
+            this.contadorMasculino++;
+        } else if (a.genero() === "F") {
+            this.contadorFemenino++;
         }
     }
 
@@ -48,5 +55,11 @@ export default class Cl_mEvento {
     }
     porcentajeVIP(): number {
         return this.cntTotalAsistentes > 0 ? (this.contadorTipo2 / this.cntTotalAsistentes) * 100 : 0;
+    }
+    porcentajeMasculino(): number{
+        return this.cntTotalAsistentes > 0 ? (this.contadorMasculino / this.cntTotalAsistentes) * 100 : 0;
+    }
+    porcentajeFemenino(): number{
+        return this.cntTotalAsistentes > 0 ? (this.contadorFemenino / this.cntTotalAsistentes) * 100 : 0;
     }
 }

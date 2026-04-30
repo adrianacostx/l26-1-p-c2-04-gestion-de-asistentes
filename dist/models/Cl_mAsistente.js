@@ -19,6 +19,15 @@ export default class Cl_mAsistente extends Cl_mPersona {
     get tipoEntrada() {
         return this._tipoEntrada;
     }
+    genero() {
+        if (this.sexo.toUpperCase() === "M") {
+            return "M";
+        }
+        else if (this.sexo.toUpperCase() === "F") {
+            return "F";
+        }
+        return "";
+    }
     edadActual() {
         const hoy = new Date();
         let edad = hoy.getFullYear() - this.fechaNacimiento.getFullYear();
