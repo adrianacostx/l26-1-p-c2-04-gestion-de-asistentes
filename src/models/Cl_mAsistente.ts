@@ -33,17 +33,17 @@ export default class Cl_mAsistente extends Cl_mPersona {
     }
 
     precioBase(): number {
-        if (this._tipoEntrada === 1) {
+        if (this.tipoEntrada === 1) {
             return 10;
-        } else if (this._tipoEntrada === 2 && this.sexo.toUpperCase() === "F") {
+        } else if (this.tipoEntrada === 2 && this.sexo.toUpperCase() === "F") {
             return 25;
-        } else if (this._tipoEntrada === 2) {
+        } else if (this.tipoEntrada === 2) {
             return 30;
         }
         return 0;
     }
     descuento(): number {
-        if (this._tipoEntrada === 1 && this._esEstudiante && this.edadActual() < 18) {
+        if (this.tipoEntrada === 1 && this.esEstudiante && this.edadActual() < 18) {
             return 5;
         }
         return 0;
