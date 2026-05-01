@@ -31,13 +31,7 @@ export default class Cl_mAsistente extends Cl_mPersona {
         }
         return "";
     }
-    edadActual(): number {
-        const hoy = new Date();
-        let edad = hoy.getFullYear() - this.fechaNacimiento.getFullYear();
-        const cumpleEsteAno = new Date(hoy.getFullYear(), this.fechaNacimiento.getMonth(), this.fechaNacimiento.getDate());
-        if (hoy < cumpleEsteAno) edad--;
-        return edad;
-    }
+
     precioBase(): number {
         if (this._tipoEntrada === 1) {
             return 10;

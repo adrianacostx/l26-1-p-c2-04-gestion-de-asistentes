@@ -43,4 +43,11 @@ export default class Cl_mPersona {
     get fechaNacimiento(): Date {
         return this._fechaNacimiento;
     }
+     edadActual(): number {
+        const hoy = new Date();
+        let edad = hoy.getFullYear() - this.fechaNacimiento.getFullYear();
+        const cumpleEsteAno = new Date(hoy.getFullYear(), this.fechaNacimiento.getMonth(), this.fechaNacimiento.getDate());
+        if (hoy < cumpleEsteAno) edad--;
+        return edad;
+    }
 }
