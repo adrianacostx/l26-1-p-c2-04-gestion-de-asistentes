@@ -51,4 +51,10 @@ export default class Cl_mAsistente extends Cl_mPersona {
     precio(): number {
         return this.precioBase() - this.descuento();
     }
+    precioPromedioBaseMenores25NoEstudiantes(): number {
+        if (this.edadActual() < 25 && this.esEstudiante === false) {
+            return this.precioBase();
+        }
+        return 0;
+    }
 }

@@ -28,6 +28,7 @@ export default class Cl_cEvento {
                     porcentajeVIP: this.mEvento.porcentajeVIP(),
                     porcentajeMasculino: this.mEvento.porcentajeMasculino(),
                     porcentajeFemenino: this.mEvento.porcentajeFemenino(),
+                    precioBasePromedioMenores: this.mEvento.precioBasePromedioMenores(),
                 });
             }
         });

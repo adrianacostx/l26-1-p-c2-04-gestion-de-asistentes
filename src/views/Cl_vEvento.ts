@@ -11,8 +11,10 @@ export default class Cl_vEvento implements I_vEvento {
   lblPorcentajeVIP: HTMLInputElement;
   lblPorcentajeMasculino: HTMLInputElement;
   lblPorcentajeFemenino: HTMLInputElement;
+  lblPrecioBasePromedioMenores: HTMLInputElement;
   btAgregarAsistente: HTMLButtonElement;
   vista: HTMLElement | null;
+  
   constructor() {
     this.vista = document.getElementById("body");
     this.btAgregarAsistente = document.getElementById(
@@ -48,11 +50,14 @@ export default class Cl_vEvento implements I_vEvento {
     this.lblPorcentajeFemenino = document.getElementById(
       "body_lblPorcentajeFemenino",
     ) as HTMLInputElement;
+    this.lblPrecioBasePromedioMenores = document.getElementById(
+      "body_lblPrecioBasePromedioMenores",
+    ) as HTMLInputElement;
   }
   onAgregarAsistente(callback: () => void): void {
     this.btAgregarAsistente.onclick = callback;
   }
-  reportar({ totalEntrada, totalRegulares, totalVIP, totalAsistentes, porcentajeMenores, porcentajeMayores, porcentajeRegulares, porcentajeVIP, porcentajeMasculino, porcentajeFemenino }: { totalEntrada: number, totalRegulares: number, totalVIP: number, totalAsistentes: number, porcentajeMenores: number, porcentajeMayores: number, porcentajeRegulares: number, porcentajeVIP: number, porcentajeMasculino: number, porcentajeFemenino: number }): void {
+  reportar({ totalEntrada, totalRegulares, totalVIP, totalAsistentes, porcentajeMenores, porcentajeMayores, porcentajeRegulares, porcentajeVIP, porcentajeMasculino, porcentajeFemenino, precioBasePromedioMenores}: { totalEntrada: number, totalRegulares: number, totalVIP: number, totalAsistentes: number, porcentajeMenores: number, porcentajeMayores: number, porcentajeRegulares: number, porcentajeVIP: number, porcentajeMasculino: number, porcentajeFemenino: number, precioBasePromedioMenores: number }): void {
     this.lblTotalEntrada.innerHTML = `$${totalEntrada}`;
     this.lblTotalRegulares.innerHTML = `$${totalRegulares}`;
     this.lblTotalVIP.innerHTML = `$${totalVIP}`;
@@ -63,6 +68,7 @@ export default class Cl_vEvento implements I_vEvento {
     this.lblPorcentajeVIP.innerHTML = `${porcentajeVIP.toFixed(2)}%`;
     this.lblPorcentajeMasculino.innerHTML = `${porcentajeMasculino.toFixed(2)}%`;
     this.lblPorcentajeFemenino.innerHTML = `${porcentajeFemenino.toFixed(2)}%`;
+    this.lblPrecioBasePromedioMenores.innerHTML = `$${precioBasePromedioMenores.toFixed(2)}`;
   }
   mostrar(): void {
     if (this.vista === null) return;

@@ -4,7 +4,6 @@ export default class Cl_mPersona {
     private _cedula: number;
     private _sexo: string;
     private _fechaNacimiento: Date;
-
     constructor({ nombre, apellido, cedula, sexo, fechaNacimiento }: { nombre: string; apellido: string; cedula: number; sexo: string; fechaNacimiento: Date }) {
         this._nombre = nombre;
         this._apellido = apellido;

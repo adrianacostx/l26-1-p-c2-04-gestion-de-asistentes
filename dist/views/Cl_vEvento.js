@@ -9,6 +9,7 @@ export default class Cl_vEvento {
     lblPorcentajeVIP;
     lblPorcentajeMasculino;
     lblPorcentajeFemenino;
+    lblPrecioBasePromedioMenores;
     btAgregarAsistente;
     vista;
     constructor() {
@@ -24,11 +25,12 @@ export default class Cl_vEvento {
         this.lblPorcentajeVIP = document.getElementById("body_lblPorcentajeVIP");
         this.lblPorcentajeMasculino = document.getElementById("body_lblPorcentajeMasculino");
         this.lblPorcentajeFemenino = document.getElementById("body_lblPorcentajeFemenino");
+        this.lblPrecioBasePromedioMenores = document.getElementById("body_lblPrecioBasePromedioMenores");
     }
     onAgregarAsistente(callback) {
         this.btAgregarAsistente.onclick = callback;
     }
-    reportar({ totalEntrada, totalRegulares, totalVIP, totalAsistentes, porcentajeMenores, porcentajeMayores, porcentajeRegulares, porcentajeVIP, porcentajeMasculino, porcentajeFemenino }) {
+    reportar({ totalEntrada, totalRegulares, totalVIP, totalAsistentes, porcentajeMenores, porcentajeMayores, porcentajeRegulares, porcentajeVIP, porcentajeMasculino, porcentajeFemenino, precioBasePromedioMenores }) {
         this.lblTotalEntrada.innerHTML = `$${totalEntrada}`;
         this.lblTotalRegulares.innerHTML = `$${totalRegulares}`;
         this.lblTotalVIP.innerHTML = `$${totalVIP}`;
@@ -39,6 +41,7 @@ export default class Cl_vEvento {
         this.lblPorcentajeVIP.innerHTML = `${porcentajeVIP.toFixed(2)}%`;
         this.lblPorcentajeMasculino.innerHTML = `${porcentajeMasculino.toFixed(2)}%`;
         this.lblPorcentajeFemenino.innerHTML = `${porcentajeFemenino.toFixed(2)}%`;
+        this.lblPrecioBasePromedioMenores.innerHTML = `$${precioBasePromedioMenores.toFixed(2)}`;
     }
     mostrar() {
         if (this.vista === null)

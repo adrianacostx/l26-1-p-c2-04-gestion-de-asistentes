@@ -10,6 +10,8 @@ export default class Cl_mEvento {
     private contadorMenores: number = 0;
     private contadorMasculino: number = 0;
     private contadorFemenino: number = 0;
+    private acumuladorPrecioBaseMenores25: number = 0;
+    private contadorMenores25NoEstudiantes: number = 0;
 
     procesarAsistente(a: Cl_mAsistente): void {
         this.cntTotalAsistentes++;
@@ -24,6 +26,10 @@ export default class Cl_mEvento {
         }
         if (a.edadActual() < 18) {
             this.contadorMenores++;
+        }
+        if (a.edadActual() < 25 && a.esEstudiante === false) {
+            this.acumuladorPrecioBaseMenores25 += a.precioPromedioBaseMenores25NoEstudiantes();
+            this.contadorMenores25NoEstudiantes++;
         }
         if (a.genero() === "M") {
             this.contadorMasculino++;
@@ -61,5 +67,8 @@ export default class Cl_mEvento {
     }
     porcentajeFemenino(): number{
         return this.cntTotalAsistentes > 0 ? (this.contadorFemenino / this.cntTotalAsistentes) * 100 : 0;
+    }
+    precioBasePromedioMenores(): number {
+        return this.contadorMenores25NoEstudiantes > 0 ? this.acumuladorPrecioBaseMenores25 / this.contadorMenores25NoEstudiantes : 0;
     }
 }

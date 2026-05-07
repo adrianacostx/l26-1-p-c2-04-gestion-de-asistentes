@@ -11,5 +11,6 @@ export interface I_vEvento {
         porcentajeVIP: number;
         porcentajeMasculino: number;
         porcentajeFemenino: number;
+        precioBasePromedioMenores: number;
     }): void;
 }
